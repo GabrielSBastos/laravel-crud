@@ -10,13 +10,16 @@
     <div>
         @if($erros->any())
         <ul>
-            @foreach($erros->all() as $error)
+           @foreach($erros->all() as $error)
             <li>{{$error}}</li>
+           @endforeach
         </ul>
+
         @endif
-    
     </div>
     <form action="post" action="{{route('product.store'}}">
+        @csrf
+        @method('post')
         <div>
             <label>Name</label>
             <input type="text" name="name" placeholder="Name">
